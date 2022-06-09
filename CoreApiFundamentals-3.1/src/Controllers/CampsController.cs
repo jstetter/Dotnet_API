@@ -1,4 +1,5 @@
 ﻿using System;
+using CoreCodeCamp.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreCodeCamp.Controllers
@@ -8,10 +9,22 @@ namespace CoreCodeCamp.Controllers
 
 	public class CampsController : ControllerBase
 	{
-		public object Get()
+		private readonly ICampRepository _repository;
+
+		public CampsController(ICampRepository repository)
         {
-			return new { Moniker = "ATL2018", Name = "Atlanta Code Camp" };
+			_repository = repository;
         }
+
+		[HttpGet]
+		public IActionResult GetCamps()
+		{ 
+			return Ok(new { Moniker = "ATL2018", Name = "Atlanta Code Camp" });
+        }
+
+
+
+
 	}
 }
 

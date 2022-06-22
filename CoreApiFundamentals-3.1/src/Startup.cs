@@ -16,6 +16,7 @@ namespace CoreCodeCamp
 {
   public class Startup
   {
+    //SERVICES NEEDED FOR THE WEB API (GUESSING THIS IS BOILERPLATE DOTNET CONFIG)
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddDbContext<CampContext>();
@@ -36,6 +37,7 @@ namespace CoreCodeCamp
       app.UseAuthentication();
       app.UseAuthorization();
 
+      //ONLY MAPPING CONTROLLERS FOR ENDPOINTS (NO VIEWS)
       app.UseEndpoints(cfg =>
       {
         cfg.MapControllers();
